@@ -1,4 +1,4 @@
-package com.dadm.android_practice
+package com.msissa.android_practice
 
 import org.junit.Test
 

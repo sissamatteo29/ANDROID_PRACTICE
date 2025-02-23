@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ANDROID_PRACTICE</string>
+    <string name="new_quotation">Get a new quotation</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="favourite_quotations">Favourite quotations</string>
+    <string name="new_quote">New Quote</string>
+    <string name="favourites">Favourites</string>
+    <string name="settings_menu">Settings</string>
+    <string name="about_menu">About</string>
+    <string name="info_dev">Android Practice by\n\nMatteo Sissa\n\nmail: matteo.sissa29@gmail.com\n\nDeveloped for DADM 2024\n\n</string>
+    <string name="accessibility_dev_picture">Developer Picture</string>
 </resources>

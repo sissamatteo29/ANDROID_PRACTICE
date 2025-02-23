@@ -1,4 +1,4 @@
-package com.dadm.android_practice
+package com.msissa.android_practice
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.dadm.android_practice", appContext.packageName)
+        assertEquals("com.msissa.android_practice", appContext.packageName)
     }
 }

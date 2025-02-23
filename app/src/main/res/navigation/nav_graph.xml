@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/newQuotationFragment">
+
+    <fragment
+        android:id="@+id/newQuotationFragment"
+        android:name="com.msissa.android_practice.ui.newquotation.NewQuotationFragment"
+        android:label="@string/new_quotation" />
+    <dialog
+        android:id="@+id/aboutDialogFragment"
+        android:name="com.msissa.android_practice.ui.about.AboutDialogFragment"
+        android:label="@string/about" />
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="com.msissa.android_practice.ui.favourites.FavouritesFragment"
+        android:label="@string/favourite_quotations" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.msissa.android_practice.ui.settings.SettingsFragment"
+        android:label="@string/settings" />
+</navigation>

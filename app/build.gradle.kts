@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.dadm.android_practice"
+    namespace = "com.msissa.android_practice"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.dadm.android_practice"
+        applicationId = "com.msissa.android_practice"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -33,10 +33,15 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
 
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
