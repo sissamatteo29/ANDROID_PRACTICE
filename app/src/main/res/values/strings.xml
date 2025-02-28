@@ -10,4 +10,8 @@
     <string name="about_menu">About</string>
     <string name="info_dev">Android Practice by\n\nMatteo Sissa\n\nmail: matteo.sissa29@gmail.com\n\nDeveloped for DADM 2024\n\n</string>
     <string name="accessibility_dev_picture">Developer Picture</string>
+    <string name="add_icon_accessibility">Add the quote to your list of favourites</string>
+    <string name="welcome_message">Hello %1s!,\n\nRefresh to get a new quotation\n\n(swipe down or options menu)</string>
+    <string name="anonymous_user">Anonymous</string>
+    <string name="refresh">Refresh</string>
 </resources>
