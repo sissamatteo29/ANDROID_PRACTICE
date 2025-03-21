@@ -15,9 +15,17 @@
     <fragment
         android:id="@+id/favouritesFragment"
         android:name="com.msissa.android_practice.ui.favourites.FavouritesFragment"
-        android:label="@string/favourite_quotations" />
+        android:label="@string/favourite_quotations" >
+        <action
+            android:id="@+id/action_favouritesFragment_to_deleteAllDialogFragment"
+            app:destination="@id/deleteAllDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.msissa.android_practice.ui.settings.SettingsFragment"
         android:label="@string/settings" />
+    <dialog
+        android:id="@+id/deleteAllDialogFragment"
+        android:name="com.msissa.android_practice.ui.favourites.DeleteAllDialogFragment"
+        android:label="DeleteAllDialogFragment" />
 </navigation>

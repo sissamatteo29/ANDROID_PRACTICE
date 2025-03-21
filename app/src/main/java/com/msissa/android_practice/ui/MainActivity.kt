@@ -19,51 +19,46 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.msissa.android_practice.R
 import com.msissa.android_practice.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), MenuProvider {
 
     private lateinit var navController : NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
+        enableEdgeToEdge()  // edge-to-edge display, UI extends to the edge of the screen
         val binding = ActivityMainBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
+        /* Management of insets to avoid overlapping with device components */
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        // Attach listeners to change the insets of elements considering the system components
         setInsets(binding.bottomNavigationView, "navigationBar")
         setInsets(binding.navHostFragment, "fragmentContainerView")
         setInsets(binding.barLayout, "appBarLayout")
 
-
+        // Connect the navigation controller in the fragment view with the menu
         navController = binding.navHostFragment.getFragment<NavHostFragment>().navController
         (binding.bottomNavigationView as com.google.android.material.navigation.NavigationBarView)
             .setupWithNavController(navController)
 
 
+        /* Setup of the action bar */
         setSupportActionBar(binding.toolbar)
-
         val appBarConfiguration = AppBarConfiguration(
-            setOf(
+            setOf(      // Set of top-level destinations that don't have a back button
                 R.id.newQuotationFragment,
                 R.id.favouritesFragment,
                 R.id.settingsFragment
             )
         )
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        // Dynamically link the menu for the action bar
-        addMenuProvider(this)
-
+        setupActionBarWithNavController(navController, appBarConfiguration) // Add the nav controller to the action bar (automatic back button management and titles)
+        addMenuProvider(this)   // Add the menu provider to the activity (three dots)
 
     }
 
@@ -85,8 +80,9 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         }
     }
 
+
     /**
-    * Helper function that sets the insets of a component considering the system components (camera...)
+    * Helper function that sets the insets of a component considering the device physical structure (camera...)
      */
     private fun setInsets(component : View, componentName : String) {
         ViewCompat.setOnApplyWindowInsetsListener(component) {

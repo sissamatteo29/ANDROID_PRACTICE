@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_quotation">Obtienes una nueva cita</string>
+    <string name="settings">Configuración</string>
+    <string name="favourite_quotations">Citas favoritas</string>
+    <string name="new_quote">Nueva cita</string>
+    <string name="favourites">Favoritos</string>
+    <string name="settings_menu">Configuración</string>
+    <string name="info_dev">"Android Practice por  Matteo Sissa  mail: matteo.sissa29@gmail.com  Desarrollado para DADM 2024  "</string>
+    <string name="accessibility_dev_picture">Foto desarollador</string>
+    <string name="add_icon_accessibility">Añades la cita a tu lista de favoritos</string>
+    <string name="welcome_message">Hola %1s!, Actualiza para obtener una nueva cita (deslizar hacia abajo o menu de opciones)</string>
+    <string name="anonymous_user">Anónimo</string>
+    <string name="refresh">Actualiza</string>
+    <string name="delete_all_quotations">Borras todas las citas</string>
+    <string name="language_ru">Ruso</string>
+    <string name="error_network">Error de conexión. Por favor, intenta de nuevo más tarde.</string>
+    <string name="error_server">Error de server. Por favor intenta de nuevo más tarde</string>
+    <string name="error_parsing">Recibidos datos no válidos</string>
+    <string name="error_null">Un error inesperado occurrió.</string>
+    <string name="error_unknown">Se ha producido un error inesperado.</string>
+    <string name="error_timeout">El server no responde. Por favor, intenta de nuevo más tarde.</string>
+    <string name="error_network_generic">Un problema con la red occurriò. Por favor, verifica tu conexiòn.</string>
+    <string name="error_bad_data">Invalidos input data.</string>
+    <string name="language_en">Ingles</string>
+    <string name="pref_username">Nombre de usuario</string>
+    <string name="pref_username_summary">Introduce tu nombre de usuario</string>
+    <string name="pref_language">Idioma</string>
+    <string name="pref_nouser">Ningún nombre de usuario</string>
+</resources>

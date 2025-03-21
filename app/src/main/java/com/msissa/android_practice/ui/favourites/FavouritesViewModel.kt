@@ -1,30 +1,48 @@
 package com.msissa.android_practice.ui.favourites
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.msissa.android_practice.data.favourites.FavouritesRepository
 import com.msissa.android_practice.domain.model.Quotation
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FavouritesViewModel : ViewModel() {
+@HiltViewModel
+class FavouritesViewModel @Inject constructor(
+    private val favouritesRepository: FavouritesRepository
+): ViewModel() {
 
-    private var _favourites : MutableStateFlow<List<Quotation>> = MutableStateFlow(getFavouriteQuotations())
-    val favourites : StateFlow<List<Quotation>> = _favourites.asStateFlow()
+    val favourites : StateFlow<List<Quotation>> = favouritesRepository.getAllFavourites().stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(),
+        initialValue = emptyList())
+
+    val isDeleteAllMenuVisible = favourites.map { list -> list.isNotEmpty() }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(),
+            initialValue = true)
 
 
 
-
-    private fun getFavouriteQuotations() : List<Quotation> {
-        var favourites = listOf<Quotation>()
-        var num : Int
-
-        // Generate 20 random favourites
-        for(i in 1..20) {
-            num = (0..99).random()
-            favourites += Quotation(id = "$num", text = "Quotation text #$num", author = "Author #$num")
+    fun deleteAllQuotations() {
+        viewModelScope.launch {
+            favouritesRepository.removeAllQuotations()
         }
+    }
 
-        return favourites
+    fun deleteQuotationAtPosition(position : Int) {
+        viewModelScope.launch {
+            favouritesRepository.removeQuotation(favourites.value[position])
+        }
     }
 
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_quotation">Ottieni una nuova citazione</string>
+    <string name="settings">Impostazioni</string>
+    <string name="favourite_quotations">Citazioni preferite</string>
+    <string name="new_quote">Nuova citazione</string>
+    <string name="favourites">Preferiti</string>
+    <string name="settings_menu">Impostazioni</string>
+    <string name="info_dev">"Android Practice di  Matteo Sissa  mail: matteo.sissa29@gmail.com  Sviluppato per DADM 2024  "</string>
+    <string name="accessibility_dev_picture">Foto sviluppatore</string>
+    <string name="add_icon_accessibility">Aggiungi la citazione alla tua lista dei preferiti</string>
+    <string name="welcome_message">Ciao %1s!,  Aggiorna per ottenere una nuova citazione (scrolla in basso o con il menu di opzioni)</string>
+    <string name="anonymous_user">Anonimo</string>
+    <string name="refresh">Aggiorna</string>
+    <string name="delete_all_quotations">Elimina tutte le citazioni</string>
+    <string name="language_ru">Russo</string>
+    <string name="error_network">Errore di connessione. Per favore riprova</string>
+    <string name="error_server">Errore del server. Per favore riprova più tardi</string>
+    <string name="error_parsing">Ricevuti dati non validi.</string>
+    <string name="error_null">È successo un error inaspettato.</string>
+    <string name="error_unknown">"Capitò un errore inaspettato. "</string>
+    <string name="error_timeout">Il server non risponde. Per favore riprova più tardi.</string>
+    <string name="error_network_generic">È successo un errore di rete. Per favore controlla la tua connessione.</string>
+    <string name="error_bad_data">Data in input invalidi.</string>
+    <string name="language_en">Inglese</string>
+    <string name="pref_username">Username</string>
+    <string name="pref_username_summary">Inserisci il tuo username</string>
+    <string name="pref_language">Lingua</string>
+    <string name="pref_nouser">Nessun username</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditTextPreference
+        android:key="pref_username"
+        android:title="@string/pref_username"
+        android:summary="@string/pref_username_summary"
+        android:hint="@string/pref_username_summary"
+        app:useSimpleSummaryProvider="true" />
+
+    <ListPreference
+        android:key="pref_language"
+        android:title="@string/pref_language"
+        android:defaultValue="en"
+        android:entryValues="@array/language_codes"
+        android:entries="@array/languages"
+        app:useSimpleSummaryProvider="true"/>
+
+
+</PreferenceScreen>
