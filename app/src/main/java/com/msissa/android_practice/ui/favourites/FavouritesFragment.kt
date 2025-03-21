@@ -62,8 +62,8 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites), MenuProvider 
         _binding = FragmentFavouritesBinding.bind(view)
 
         /* Create the adapter to manage the quotations and define the click listener */
-        val adapter = QuotationListAdapter({
-            authorName -> if(authorName == "Anonymous") {
+        val adapter = QuotationListAdapter { authorName ->
+            if (authorName == "Anonymous") {
                 Snackbar.make(binding.root, "Anonymous author", Snackbar.LENGTH_SHORT).show()
             } else {
                 val url = "https://en.wikipedia.org/wiki/Special:Search?search=$authorName"
@@ -71,11 +71,15 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites), MenuProvider 
 
                 try {
                     startActivity(intent)
-                } catch (e : Exception) {
-                    Snackbar.make(binding.root, "Impossible to handle your request", Snackbar.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Snackbar.make(
+                        binding.root,
+                        "Impossible to handle your request",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
             }
-        })
+        }
 
         /* Setup the recycler view on the UI with the adapter*/
         val recyclerView = binding.rvFavourites

@@ -1,12 +1,9 @@
 package com.msissa.android_practice.ui.newquotation
 
-import android.app.Application
-import android.content.Context
-import androidx.core.content.ContentProviderCompat.requireContext
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.msissa.android_practice.data.favourites.FavouritesRepository
-import com.msissa.android_practice.data.helper.DatabaseFileHelper
 import com.msissa.android_practice.data.newquotation.NewQuotationRepository
 import com.msissa.android_practice.data.settings.SettingsRepository
 import com.msissa.android_practice.domain.model.Quotation
@@ -22,7 +19,6 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.random.Random
 
 @HiltViewModel
 class NewQuotationViewModel @Inject constructor(
@@ -77,17 +73,17 @@ class NewQuotationViewModel @Inject constructor(
         viewModelScope.launch {
             newQuotationRepository.getNewQuotation().fold(
                 onSuccess = { newQuote ->
+                    // Log.d("QuoteDebug", "Received quote: ${newQuote.text} by ${newQuote.author}")  -> Verification: the API returns multiple times the same quote
                     _quote.update { newQuote }
                 },
                 onFailure = { error ->
                     _showErrorMessage.update { error }
                 }
             )
+
+            // Hide icon after loading
+            _showLoading.update { false }
         }
-
-        // Hide icon after loading
-        _showLoading.update { false }
-
     }
 
     // Expose a function to the UI to manage the visibility of the welcome message

@@ -1,7 +1,6 @@
 package com.msissa.android_practice.ui.newquotation
 
 
-import android.net.http.NetworkException
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -22,7 +21,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.io.IOException
 import java.net.SocketTimeoutException
-import java.net.UnknownHostException
 
 @AndroidEntryPoint
 class NewQuotationFragment : Fragment(R.layout.fragment_new_quotation), MenuProvider {
@@ -80,7 +78,7 @@ class NewQuotationFragment : Fragment(R.layout.fragment_new_quotation), MenuProv
                     }
                 }
 
-                // Update the quote witgh the text from the viewModel (content + author)
+                // Update the quote width the text from the viewModel (content + author)
                 launch {
                     newQuotationViewModel.quote.collect { quote ->
                         if(quote != null) {
@@ -111,21 +109,15 @@ class NewQuotationFragment : Fragment(R.layout.fragment_new_quotation), MenuProv
                 // Observe changes in the error state and display the error to the user
                 launch {
                     newQuotationViewModel.showErrorMessage.collect { error ->
-                        if (error == null) return@collect   // Ignore null
-                        val messageToUser: String
-                        when (error) {
-                            is NoInternetException -> messageToUser =
-                                getString(R.string.error_network) // No internet
-                            is SocketTimeoutException -> messageToUser =
-                                getString(R.string.error_timeout) // Request timeout
-                            is IOException -> messageToUser =
-                                getString(R.string.error_network_generic) // Generic network failure
-                            is IllegalArgumentException -> messageToUser =
-                                getString(R.string.error_bad_data) // Invalid data
-                            is NullPointerException -> messageToUser =
-                                getString(R.string.error_null) // Null reference
-                            else -> messageToUser =
-                                getString(R.string.error_unknown) // Unexpected errors
+                        if (error == null) return@collect
+                        // Ignore null
+                        val messageToUser: String = when (error) {
+                            is NoInternetException -> getString(R.string.error_network) // No internet
+                            is SocketTimeoutException -> getString(R.string.error_timeout) // Request timeout
+                            is IOException -> getString(R.string.error_network_generic) // Generic network failure
+                            is IllegalArgumentException -> getString(R.string.error_bad_data) // Invalid data
+                            is NullPointerException -> getString(R.string.error_null) // Null reference
+                            else -> getString(R.string.error_unknown) // Unexpected errors
                         }
 
                         Snackbar.make(view, messageToUser, Snackbar.LENGTH_LONG).show()

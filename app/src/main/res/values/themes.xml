@@ -53,7 +53,7 @@
         <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh</item>
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
 
-        <!-- Apply custome style for buttons -->
+        <!-- Apply custom style for buttons -->
         <item name="buttonStyle">@style/Style.App.Button</item>
     </style>
 

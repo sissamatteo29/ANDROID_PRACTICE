@@ -41,9 +41,9 @@ class QuotationListAdapter(
         }
 
         init {
-            binding.root.setOnClickListener({
+            binding.root.setOnClickListener {
                 onItemClick(binding.tvAuthorNameFavourite.text.toString())
-            })
+            }
         }
 
     }   // class QuotationViewHolder
